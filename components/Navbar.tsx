@@ -7,15 +7,16 @@ export default function Navbar() {
         {/* Logo and Navigation */}
         <div className="flex items-center gap-8">
           {/* Logo */}
-          <div className="flex items-center gap-1">
-            <div className="w-7 h-7 bg-red-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-base">B</span>
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 bg-primary rounded flex items-center justify-center">
+              <span className="text-white font-bold text-base">U</span>
             </div>
+            <span className="text-gray-900 font-bold text-lg">Team Uni</span>
           </div>
 
           {/* Main Navigation */}
           <nav className="flex items-center gap-6">
-            <a href="#" className="text-gray-900 font-semibold text-sm hover:text-gray-700">
+            <a href="#" className="text-gray-900 font-semibold text-sm hover:text-primary">
               Community
             </a>
             <a href="#" className="text-gray-600 text-sm hover:text-gray-900">
@@ -43,7 +44,7 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search"
-              className="w-full pl-10 pr-4 py-1.5 rounded border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:border-gray-300 focus:outline-none text-sm bg-gray-50"
+              className="w-full pl-10 pr-4 py-1.5 rounded border border-gray-300 focus:ring-2 focus:ring-purple-200 focus:border-primary focus:outline-none text-sm bg-gray-50"
             />
           </div>
         </div>
@@ -53,7 +54,7 @@ export default function Navbar() {
           <button className="px-4 py-1.5 text-gray-700 font-medium text-sm hover:bg-gray-50 rounded transition-colors">
             Sign in
           </button>
-          <button className="px-4 py-1.5 bg-red-600 text-white font-medium text-sm rounded hover:bg-red-700 transition-colors">
+          <button className="px-4 py-1.5 bg-primary text-white font-medium text-sm rounded hover:bg-primary/90 transition-colors">
             Sign up
           </button>
         </div>

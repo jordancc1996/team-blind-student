@@ -45,12 +45,11 @@ team-blind-clone/
 ├── app/                    # Next.js App Router pages
 │   ├── page.tsx           # Homepage
 │   ├── layout.tsx         # Root layout
-│   ├── globals.css        # Global styles
-│   └── favicon.ico        # Favicon
+│   └── globals.css        # Global styles
 ├── components/            # React components
 │   ├── Navbar.tsx         # Top navigation bar
 │   ├── Sidebar.tsx        # Left sidebar navigation
-│   ├── RightSidebar.tsx   # Right sidebar (trending topics)
+│   ├── TrendingSidebar.tsx # Right sidebar (most read)
 │   ├── PostCard.tsx       # Post card component
 │   ├── index.ts           # Component exports
 │   └── ui/                # shadcn/ui base components
@@ -76,8 +75,8 @@ team-blind-clone/
 ✅ Responsive navigation bar with purple theme (#5B21B6)
 ✅ Left sidebar with navigation links
 ✅ Main content feed with post cards
-✅ Right sidebar with trending topics and popular companies
-✅ Team Blind-inspired design
+✅ Right sidebar with most read posts
+✅ Anonymous university community design
 
 ## Color Scheme
 

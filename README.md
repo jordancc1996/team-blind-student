@@ -1,6 +1,6 @@
-# Team Blind Clone
+# Team Uni
 
-A clone of Team Blind built with Next.js 14, TypeScript, and Tailwind CSS.
+An anonymous university community platform built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## Getting Started
 
@@ -30,10 +30,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - Next.js 14 with App Router
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS with purple theme (#5B21B6)
 - shadcn/ui components
 - Responsive design
-- Team Blind-inspired UI
+- Anonymous community discussions
 
 ## Project Structure
 

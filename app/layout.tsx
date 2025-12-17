@@ -5,8 +5,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Team Blind Clone",
-  description: "A clone of Team Blind built with Next.js 14",
+  title: "Team Uni - Anonymous University Community",
+  description: "Team Uni is an anonymous professional community for verified university students and alumni to discuss careers, salaries, and opportunities.",
 }
 
 export default function RootLayout({
