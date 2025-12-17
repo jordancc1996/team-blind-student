@@ -68,7 +68,7 @@ export default function CreatePostPage() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
-                  placeholder="What's your question or topic?"
+                  placeholder="What&apos;s your question or topic?"
                   required
                 />
               </div>

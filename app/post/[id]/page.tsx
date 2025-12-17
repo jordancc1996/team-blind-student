@@ -18,7 +18,7 @@ export default function PostDetailPage() {
     company: "Meta",
     timeAgo: "Yesterday",
     title: "Uber Senior vs google L4 vs meta E5",
-    content: "Former META guy consider rejoining Meta. I've been working in industry for 3 years now and recently got offers from multiple companies. Looking for advice on which offer to take. Meta is offering $450k total comp, Google $420k, and Uber $380k. All positions are at similar levels. What factors should I consider beyond just compensation?",
+    content: "Former META guy consider rejoining Meta. I&apos;ve been working in industry for 3 years now and recently got offers from multiple companies. Looking for advice on which offer to take. Meta is offering $450k total comp, Google $420k, and Uber $380k. All positions are at similar levels. What factors should I consider beyond just compensation?",
     likes: 142,
     comments: 38,
     views: 1135,
@@ -30,7 +30,7 @@ export default function PostDetailPage() {
       id: 1,
       company: "Google",
       timeAgo: "5h ago",
-      content: "I made the switch from Meta to Google last year. The WLB at Google is significantly better. Meta pays more but you'll work longer hours.",
+      content: "I made the switch from Meta to Google last year. The WLB at Google is significantly better. Meta pays more but you&apos;ll work longer hours.",
       likes: 12,
     },
     {

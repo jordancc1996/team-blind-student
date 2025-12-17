@@ -27,7 +27,7 @@ export default function TrendingSidebar() {
     {
       topic: "Tech Industry",
       date: "6d",
-      title: "What's the current FAANG+ right now?",
+      title: "What&apos;s the current FAANG+ right now?",
       views: 8037,
     },
   ]
