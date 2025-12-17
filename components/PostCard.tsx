@@ -75,13 +75,13 @@ export default function PostCard({
         {/* Poll Badge */}
         {isPoll && pollParticipants && (
           <div className="ml-15 mb-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 border border-purple-200 rounded text-xs">
-              <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-300 rounded text-xs">
+              <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                 <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
               </svg>
-              <span className="font-semibold text-primary">Poll</span>
-              <span className="text-primary">{pollParticipants} Participants</span>
+              <span className="font-semibold text-black">Poll</span>
+              <span className="text-gray-600">{pollParticipants} Participants</span>
             </div>
           </div>
         )}
@@ -93,7 +93,7 @@ export default function PostCard({
               e.preventDefault()
               e.stopPropagation()
             }}
-            className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-gray-500 hover:text-black transition-colors cursor-pointer"
           >
             <Heart className="w-5 h-5" />
             <span className="text-sm font-medium">{likes}</span>
@@ -104,7 +104,7 @@ export default function PostCard({
               e.preventDefault()
               e.stopPropagation()
             }}
-            className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors cursor-pointer"
+            className="flex items-center gap-2 text-gray-500 hover:text-black transition-colors cursor-pointer"
           >
             <MessageCircle className="w-5 h-5" />
             <span className="text-sm font-medium">{comments}</span>

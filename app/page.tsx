@@ -119,7 +119,7 @@ export default function Home() {
 
                 <button 
                   onClick={() => router.push("/create-post")}
-                  className="px-4 py-1.5 bg-primary text-white font-medium text-sm rounded hover:bg-primary/90 transition-colors cursor-pointer"
+                  className="px-4 py-1.5 bg-black text-white font-medium text-sm rounded hover:bg-gray-800 transition-colors cursor-pointer"
                 >
                   + New Post
                 </button>
@@ -128,11 +128,11 @@ export default function Home() {
               {/* Feed Tabs */}
               <div className="mb-4 flex gap-1 border-b border-gray-200">
                 <button 
-                  onClick={() => setActiveTab("popular")}
+                  onClick(() => setActiveTab("popular")}
                   className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
                     activeTab === "popular" 
-                      ? "text-primary border-b-2 border-primary" 
-                      : "text-gray-500 hover:text-gray-900"
+                      ? "text-black border-b-2 border-black" 
+                      : "text-gray-500 hover:text-black"
                   }`}
                 >
                   Popular
@@ -141,8 +141,8 @@ export default function Home() {
                   onClick={() => setActiveTab("recent")}
                   className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
                     activeTab === "recent" 
-                      ? "text-primary border-b-2 border-primary" 
-                      : "text-gray-500 hover:text-gray-900"
+                      ? "text-black border-b-2 border-black" 
+                      : "text-gray-500 hover:text-black"
                   }`}
                 >
                   Recent
@@ -151,8 +151,8 @@ export default function Home() {
                   onClick={() => setActiveTab("following")}
                   className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
                     activeTab === "following" 
-                      ? "text-primary border-b-2 border-primary" 
-                      : "text-gray-500 hover:text-gray-900"
+                      ? "text-black border-b-2 border-black" 
+                      : "text-gray-500 hover:text-black"
                   }`}
                 >
                   Following

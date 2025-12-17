@@ -24,28 +24,28 @@ export default function Navbar() {
         {/* Logo and Navigation */}
         <div className="flex items-center gap-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <div className="w-7 h-7 bg-primary rounded flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity">
+            <div className="w-7 h-7 bg-black rounded flex items-center justify-center">
               <span className="text-white font-bold text-base">C</span>
             </div>
-            <span className="text-gray-900 font-bold text-lg">Campus Blind</span>
+            <span className="text-black font-bold text-lg tracking-tight">Campus Blind</span>
           </Link>
 
           {/* Main Navigation */}
           <nav className="flex items-center gap-6">
-            <Link href="/" className="text-gray-900 font-semibold text-sm hover:text-primary cursor-pointer transition-colors">
+            <Link href="/" className="text-black font-medium text-sm hover:text-gray-600 cursor-pointer transition-colors">
               Community
             </Link>
-            <Link href="/#salaries" className="text-gray-600 text-sm hover:text-gray-900 cursor-pointer transition-colors">
+            <Link href="/#salaries" className="text-gray-500 text-sm hover:text-black cursor-pointer transition-colors">
               Salaries
             </Link>
-            <Link href="/#reviews" className="text-gray-600 text-sm hover:text-gray-900 cursor-pointer transition-colors">
+            <Link href="/#reviews" className="text-gray-500 text-sm hover:text-black cursor-pointer transition-colors">
               Reviews
             </Link>
-            <Link href="/#jobs" className="text-gray-600 text-sm hover:text-gray-900 cursor-pointer transition-colors">
+            <Link href="/#jobs" className="text-gray-500 text-sm hover:text-black cursor-pointer transition-colors">
               Jobs
             </Link>
-            <button className="text-gray-600 text-sm hover:text-gray-900 flex items-center gap-1 cursor-pointer transition-colors">
+            <button className="text-gray-500 text-sm hover:text-black flex items-center gap-1 cursor-pointer transition-colors">
               For Business
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -63,7 +63,7 @@ export default function Navbar() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search"
-              className="w-full pl-10 pr-4 py-1.5 rounded border border-gray-300 focus:ring-2 focus:ring-purple-200 focus:border-primary focus:outline-none text-sm bg-gray-50"
+              className="w-full pl-10 pr-4 py-1.5 rounded border border-gray-300 focus:ring-1 focus:ring-black focus:border-black focus:outline-none text-sm bg-gray-50"
             />
           </div>
         </form>
@@ -71,12 +71,12 @@ export default function Navbar() {
         {/* Auth Buttons */}
         <div className="flex items-center gap-3">
           <Link href="/login">
-            <button className="px-4 py-1.5 text-gray-700 font-medium text-sm hover:bg-gray-50 rounded transition-colors cursor-pointer">
+            <button className="px-4 py-1.5 text-black font-medium text-sm hover:bg-gray-100 rounded transition-colors cursor-pointer">
               Sign in
             </button>
           </Link>
           <Link href="/signup">
-            <button className="px-4 py-1.5 bg-primary text-white font-medium text-sm rounded hover:bg-primary/90 transition-colors cursor-pointer">
+            <button className="px-4 py-1.5 bg-black text-white font-medium text-sm rounded hover:bg-gray-800 transition-colors cursor-pointer">
               Sign up
             </button>
           </Link>
