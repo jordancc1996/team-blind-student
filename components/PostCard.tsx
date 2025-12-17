@@ -1,52 +1,55 @@
-import { MessageSquare, ArrowBigUp, Share2, MoreHorizontal } from "lucide-react"
+import { MessageCircle, Heart, Eye, Share2, MoreHorizontal } from "lucide-react"
 
 interface PostCardProps {
-  university: string
-  universityColor: string
+  topic: string
+  company: string
   timeAgo: string
   title: string
   content: string
-  upvotes: number
+  likes: number
   comments: number
-  channel?: string
+  views: number
+  isPoll?: boolean
+  pollParticipants?: number
+  avatarColor?: string
 }
 
 export default function PostCard({
-  university,
-  universityColor,
+  topic,
+  company,
   timeAgo,
   title,
   content,
-  upvotes,
+  likes,
   comments,
-  channel,
+  views,
+  isPoll,
+  pollParticipants,
+  avatarColor = "bg-gray-400",
 }: PostCardProps) {
   return (
-    <article className="bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-all">
-      <div className="p-5">
+    <article className="bg-white rounded-lg border border-gray-200 hover:shadow-sm transition-all mb-3">
+      <div className="p-4">
         {/* Header */}
         <div className="flex items-start gap-3 mb-3">
           {/* Avatar */}
-          <div className={`w-10 h-10 ${universityColor} rounded-full flex items-center justify-center flex-shrink-0`}>
-            <span className="text-white font-bold text-sm">
-              {university.substring(0, 1).toUpperCase()}
+          <div className={`w-12 h-12 ${avatarColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+            <span className="text-white font-bold text-lg">
+              {company.substring(0, 1).toUpperCase()}
             </span>
           </div>
           
           {/* User Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <span className={`inline-block px-2 py-0.5 ${universityColor} bg-opacity-10 text-xs font-semibold rounded`}>
-                {university}
-              </span>
-              {channel && (
-                <>
-                  <span className="text-gray-400">•</span>
-                  <span className="text-xs text-gray-500">#{channel}</span>
-                </>
-              )}
-              <span className="text-gray-400">•</span>
-              <span className="text-xs text-gray-500">{timeAgo}</span>
+              <span className="font-semibold text-sm text-gray-900">{topic}</span>
+              <span className="text-gray-400">·</span>
+              <span className="text-sm text-gray-500">{timeAgo}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-600">{company}</span>
+              <span className="text-gray-400">·</span>
+              <span className="text-sm text-gray-500">🔥 houkaa</span>
             </div>
           </div>
           
@@ -57,34 +60,50 @@ export default function PostCard({
         </div>
 
         {/* Content */}
-        <div className="mb-4">
-          <h3 className="text-base font-semibold text-gray-900 mb-2 leading-snug">
+        <div className="mb-3 ml-15">
+          <h3 className="text-base font-semibold text-gray-900 mb-2 leading-tight">
             {title}
           </h3>
           <p className="text-sm text-gray-700 leading-relaxed">{content}</p>
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-4 pt-3 border-t border-gray-100">
-          <button className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors group">
-            <div className="p-1 rounded group-hover:bg-purple-50">
-              <ArrowBigUp className="w-5 h-5" />
+        {/* Poll Badge */}
+        {isPoll && pollParticipants && (
+          <div className="ml-15 mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-red-50 border border-red-200 rounded text-xs">
+              <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+              </svg>
+              <span className="font-semibold text-red-700">Poll</span>
+              <span className="text-red-600">{pollParticipants} Participants</span>
             </div>
-            <span className="text-sm font-medium">{upvotes}</span>
+          </div>
+        )}
+
+        {/* Actions */}
+        <div className="flex items-center gap-6 pt-3 border-t border-gray-100 ml-15">
+          <button className="flex items-center gap-2 text-gray-500 hover:text-red-600 transition-colors">
+            <Heart className="w-5 h-5" />
+            <span className="text-sm font-medium">{likes}</span>
           </button>
           
-          <button className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors group">
-            <div className="p-1 rounded group-hover:bg-purple-50">
-              <MessageSquare className="w-5 h-5" />
-            </div>
+          <button className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors">
+            <MessageCircle className="w-5 h-5" />
             <span className="text-sm font-medium">{comments}</span>
           </button>
           
-          <button className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors group ml-auto">
-            <div className="p-1 rounded group-hover:bg-purple-50">
-              <Share2 className="w-5 h-5" />
-            </div>
-            <span className="text-sm font-medium">Share</span>
+          <button className="flex items-center gap-2 text-gray-500 hover:text-gray-700 transition-colors">
+            <Eye className="w-5 h-5" />
+            <span className="text-sm font-medium">{views.toLocaleString()}</span>
+          </button>
+
+          <button className="ml-auto text-gray-400 hover:text-gray-600 transition-colors">
+            <Share2 className="w-5 h-5" />
+          </button>
+
+          <button className="text-gray-400 hover:text-gray-600 transition-colors">
+            <MoreHorizontal className="w-5 h-5" />
           </button>
         </div>
       </div>

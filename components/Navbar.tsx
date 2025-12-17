@@ -1,37 +1,60 @@
-import { Search, User, Plus } from "lucide-react"
+import { Search } from "lucide-react"
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 h-16 bg-primary z-50 shadow-sm border-b border-purple-800">
-      <div className="h-full max-w-[1920px] mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2 min-w-[200px]">
-          <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
-            <span className="text-primary font-bold text-lg">B</span>
+    <nav className="fixed top-0 left-0 right-0 h-14 bg-white z-50 border-b border-gray-200">
+      <div className="h-full max-w-[1920px] mx-auto px-6 flex items-center justify-between">
+        {/* Logo and Navigation */}
+        <div className="flex items-center gap-8">
+          {/* Logo */}
+          <div className="flex items-center gap-1">
+            <div className="w-7 h-7 bg-red-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-base">B</span>
+            </div>
           </div>
-          <span className="text-white text-xl font-bold tracking-tight">Blind</span>
+
+          {/* Main Navigation */}
+          <nav className="flex items-center gap-6">
+            <a href="#" className="text-gray-900 font-semibold text-sm hover:text-gray-700">
+              Community
+            </a>
+            <a href="#" className="text-gray-600 text-sm hover:text-gray-900">
+              Salaries
+            </a>
+            <a href="#" className="text-gray-600 text-sm hover:text-gray-900">
+              Reviews
+            </a>
+            <a href="#" className="text-gray-600 text-sm hover:text-gray-900">
+              Jobs
+            </a>
+            <a href="#" className="text-gray-600 text-sm hover:text-gray-900 flex items-center gap-1">
+              For Business
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </nav>
         </div>
 
         {/* Search Bar */}
-        <div className="flex-1 max-w-xl mx-8">
+        <div className="flex-1 max-w-md mx-8">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
               type="text"
-              placeholder="Search for posts, topics, and companies"
-              className="w-full pl-10 pr-4 py-2 rounded-md border-0 focus:ring-2 focus:ring-purple-300 focus:outline-none text-sm"
+              placeholder="Search"
+              className="w-full pl-10 pr-4 py-1.5 rounded border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:border-gray-300 focus:outline-none text-sm bg-gray-50"
             />
           </div>
         </div>
 
-        {/* Right side actions */}
-        <div className="flex items-center gap-3 min-w-[200px] justify-end">
-          <button className="flex items-center gap-2 bg-white text-primary px-4 py-2 rounded-md font-semibold text-sm hover:bg-gray-100 transition-colors">
-            <Plus className="w-4 h-4" />
-            New Post
+        {/* Auth Buttons */}
+        <div className="flex items-center gap-3">
+          <button className="px-4 py-1.5 text-gray-700 font-medium text-sm hover:bg-gray-50 rounded transition-colors">
+            Sign in
           </button>
-          <button className="flex items-center justify-center w-9 h-9 bg-purple-700 rounded-full hover:bg-purple-600 transition-colors">
-            <User className="w-5 h-5 text-white" />
+          <button className="px-4 py-1.5 bg-red-600 text-white font-medium text-sm rounded hover:bg-red-700 transition-colors">
+            Sign up
           </button>
         </div>
       </div>
