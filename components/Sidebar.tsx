@@ -7,13 +7,17 @@ import { useState } from "react"
 
 export default function Sidebar() {
   const router = useRouter()
-  const [locationOpen, setLocationOpen] = useState(true)
-  const [industryOpen, setIndustryOpen] = useState(false)
-  const [jobFunctionOpen, setJobFunctionOpen] = useState(false)
-  const [learningOpen, setLearningOpen] = useState(false)
-  const [moneyOpen, setMoneyOpen] = useState(false)
+  const [universitiesOpen, setUniversitiesOpen] = useState(true)
+  const [degreeProgramsOpen, setDegreeProgramsOpen] = useState(false)
+  const [studentStatusOpen, setStudentStatusOpen] = useState(false)
+  const [studentLifeOpen, setStudentLifeOpen] = useState(false)
+  const [financesOpen, setFinancesOpen] = useState(false)
 
-  const locations = ["Dallas", "Miami", "Chicago", "New York", "Austin"]
+  const universities = ["Stanford", "MIT", "Harvard", "UC Berkeley", "NYU", "University of Texas"]
+  const degreePrograms = ["Computer Science", "Engineering", "Business", "Liberal Arts", "Medicine", "Law"]
+  const studentStatuses = ["Undergraduate", "Graduate", "PhD", "Post-Doc", "Recent Alumni"]
+  const studentLife = ["Campus Life", "Housing", "Dining", "Clubs & Activities"]
+  const finances = ["Scholarships", "Student Loans", "Budgeting", "Part-time Jobs"]
 
   return (
     <aside className="fixed left-0 top-14 bottom-0 w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto">
@@ -25,14 +29,14 @@ export default function Sidebar() {
             <span>Feed</span>
           </Link>
           
-          <Link href="/company" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
+          <Link href="/university" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Building2 className="w-5 h-5" />
-            <span>My Company</span>
+            <span>My University</span>
           </Link>
 
           <Link href="/alters" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Eye className="w-5 h-5" />
-            <span>Blind Alters</span>
+            <span>Campus Alters</span>
           </Link>
 
           <Link href="/resources" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
@@ -62,23 +66,23 @@ export default function Sidebar() {
           </Link>
         </div>
 
-        {/* Location Section */}
+        {/* Universities Section */}
         <div className="mb-4">
           <button 
-            onClick={() => setLocationOpen(!locationOpen)}
+            onClick={() => setUniversitiesOpen(!universitiesOpen)}
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
-            <span>LOCATION</span>
-            {locationOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            <span>UNIVERSITIES</span>
+            {universitiesOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
           </button>
-          {locationOpen && (
+          {universitiesOpen && (
             <nav className="space-y-0.5 px-2 mt-1">
-              {locations.map((location) => (
+              {universities.map((university) => (
                 <button
-                  key={location}
+                  key={university}
                   className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
                 >
-                  {location}
+                  {university}
                 </button>
               ))}
               <button className="w-full text-left px-6 py-2 text-sm text-gray-500 hover:bg-white rounded transition-colors">
@@ -88,48 +92,96 @@ export default function Sidebar() {
           )}
         </div>
 
-        {/* Industry Section */}
+        {/* Degree Programs Section */}
         <div className="mb-4">
           <button 
-            onClick={() => setIndustryOpen(!industryOpen)}
+            onClick={() => setDegreeProgramsOpen(!degreeProgramsOpen)}
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
-            <span>INDUSTRY</span>
-            {industryOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            <span>DEGREE PROGRAMS</span>
+            {degreeProgramsOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
           </button>
+          {degreeProgramsOpen && (
+            <nav className="space-y-0.5 px-2 mt-1">
+              {degreePrograms.map((program) => (
+                <button
+                  key={program}
+                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+                >
+                  {program}
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
 
-        {/* Job Function Section */}
+        {/* Student Status Section */}
         <div className="mb-4">
           <button 
-            onClick={() => setJobFunctionOpen(!jobFunctionOpen)}
+            onClick={() => setStudentStatusOpen(!studentStatusOpen)}
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
-            <span>JOB FUNCTION</span>
-            {jobFunctionOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            <span>STUDENT STATUS</span>
+            {studentStatusOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
           </button>
+          {studentStatusOpen && (
+            <nav className="space-y-0.5 px-2 mt-1">
+              {studentStatuses.map((status) => (
+                <button
+                  key={status}
+                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+                >
+                  {status}
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
 
-        {/* Learning & Advising Section */}
+        {/* Student Life Section */}
         <div className="mb-4">
           <button 
-            onClick={() => setLearningOpen(!learningOpen)}
+            onClick={() => setStudentLifeOpen(!studentLifeOpen)}
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
-            <span>LEARNING & ADVISING</span>
-            {learningOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            <span>STUDENT LIFE</span>
+            {studentLifeOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
           </button>
+          {studentLifeOpen && (
+            <nav className="space-y-0.5 px-2 mt-1">
+              {studentLife.map((item) => (
+                <button
+                  key={item}
+                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+                >
+                  {item}
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
 
-        {/* Money Section */}
+        {/* Finances Section */}
         <div className="mb-4">
           <button 
-            onClick={() => setMoneyOpen(!moneyOpen)}
+            onClick={() => setFinancesOpen(!financesOpen)}
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
-            <span>MONEY</span>
-            {moneyOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            <span>FINANCES</span>
+            {financesOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
           </button>
+          {financesOpen && (
+            <nav className="space-y-0.5 px-2 mt-1">
+              {finances.map((item) => (
+                <button
+                  key={item}
+                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+                >
+                  {item}
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
 
         {/* Show More Channels */}
