@@ -1,13 +1,24 @@
 "use client"
 
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Navbar from "@/components/Navbar"
 import Sidebar from "@/components/Sidebar"
 import TrendingSidebar from "@/components/TrendingSidebar"
 import PostCard from "@/components/PostCard"
 
+type FeedTab = "popular" | "recent" | "following"
+type SortOption = "popular" | "recent" | "trending"
+
 export default function Home() {
+  const router = useRouter()
+  const [activeTab, setActiveTab] = useState<FeedTab>("popular")
+  const [sortBy, setSortBy] = useState<SortOption>("popular")
+  const [showSortDropdown, setShowSortDropdown] = useState(false)
+
   const samplePosts = [
     {
+      id: "1",
       topic: "Offer Evaluation",
       company: "Meta",
       timeAgo: "Yesterday",
@@ -21,6 +32,7 @@ export default function Home() {
       avatarColor: "bg-blue-500",
     },
     {
+      id: "2",
       topic: "FAANG Lounge",
       company: "Fortinet",
       timeAgo: "Yesterday",
@@ -33,6 +45,7 @@ export default function Home() {
       avatarColor: "bg-purple-500",
     },
     {
+      id: "3",
       topic: "Tech Industry",
       company: "Google",
       timeAgo: "Yesterday",
@@ -45,6 +58,7 @@ export default function Home() {
       avatarColor: "bg-green-600",
     },
     {
+      id: "4",
       topic: "Compensation",
       company: "Amazon",
       timeAgo: "2 days ago",
@@ -71,14 +85,77 @@ export default function Home() {
           {/* Main Feed */}
           <main className="flex-1 ml-64 mr-80 overflow-y-auto bg-white">
             <div className="max-w-3xl mx-auto px-6 py-4">
-              {/* Sort Dropdown */}
+              {/* Sort Dropdown and New Post Button */}
               <div className="mb-4 flex items-center justify-between">
-                <button className="flex items-center gap-2 text-sm text-gray-700 hover:bg-gray-50 px-3 py-1.5 rounded border border-gray-300">
-                  <span>Sort by :</span>
-                  <span className="font-semibold">Popular</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowSortDropdown(!showSortDropdown)}
+                    className="flex items-center gap-2 text-sm text-gray-700 hover:bg-gray-50 px-3 py-1.5 rounded border border-gray-300 cursor-pointer transition-colors"
+                  >
+                    <span>Sort by :</span>
+                    <span className="font-semibold capitalize">{sortBy}</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {showSortDropdown && (
+                    <div className="absolute top-full left-0 mt-1 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                      {(["popular", "recent", "trending"] as SortOption[]).map((option) => (
+                        <button
+                          key={option}
+                          onClick={() => {
+                            setSortBy(option)
+                            setShowSortDropdown(false)
+                          }}
+                          className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50 first:rounded-t-md last:rounded-b-md cursor-pointer"
+                        >
+                          {option.charAt(0).toUpperCase() + option.slice(1)}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <button 
+                  onClick={() => router.push("/create-post")}
+                  className="px-4 py-1.5 bg-primary text-white font-medium text-sm rounded hover:bg-primary/90 transition-colors cursor-pointer"
+                >
+                  + New Post
+                </button>
+              </div>
+
+              {/* Feed Tabs */}
+              <div className="mb-4 flex gap-1 border-b border-gray-200">
+                <button 
+                  onClick={() => setActiveTab("popular")}
+                  className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
+                    activeTab === "popular" 
+                      ? "text-primary border-b-2 border-primary" 
+                      : "text-gray-500 hover:text-gray-900"
+                  }`}
+                >
+                  Popular
+                </button>
+                <button 
+                  onClick={() => setActiveTab("recent")}
+                  className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
+                    activeTab === "recent" 
+                      ? "text-primary border-b-2 border-primary" 
+                      : "text-gray-500 hover:text-gray-900"
+                  }`}
+                >
+                  Recent
+                </button>
+                <button 
+                  onClick={() => setActiveTab("following")}
+                  className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
+                    activeTab === "following" 
+                      ? "text-primary border-b-2 border-primary" 
+                      : "text-gray-500 hover:text-gray-900"
+                  }`}
+                >
+                  Following
                 </button>
               </div>
 

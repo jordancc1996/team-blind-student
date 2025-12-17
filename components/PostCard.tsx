@@ -1,6 +1,10 @@
+"use client"
+
+import Link from "next/link"
 import { MessageCircle, Heart, Eye, Share2, MoreHorizontal } from "lucide-react"
 
 interface PostCardProps {
+  id?: string | number
   topic: string
   company: string
   timeAgo: string
@@ -15,6 +19,7 @@ interface PostCardProps {
 }
 
 export default function PostCard({
+  id = "1",
   topic,
   company,
   timeAgo,
@@ -29,7 +34,7 @@ export default function PostCard({
 }: PostCardProps) {
   return (
     <article className="bg-white rounded-lg border border-gray-200 hover:shadow-sm transition-all mb-3">
-      <div className="p-4">
+      <Link href={`/post/${id}`} className="block p-4 cursor-pointer">
         {/* Header */}
         <div className="flex items-start gap-3 mb-3">
           {/* Avatar */}
@@ -83,30 +88,54 @@ export default function PostCard({
 
         {/* Actions */}
         <div className="flex items-center gap-6 pt-3 border-t border-gray-100 ml-15">
-          <button className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors">
+          <button 
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+            }}
+            className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors cursor-pointer"
+          >
             <Heart className="w-5 h-5" />
             <span className="text-sm font-medium">{likes}</span>
           </button>
           
-          <button className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors">
+          <button 
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+            }}
+            className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors cursor-pointer"
+          >
             <MessageCircle className="w-5 h-5" />
             <span className="text-sm font-medium">{comments}</span>
           </button>
           
-          <button className="flex items-center gap-2 text-gray-500 hover:text-gray-700 transition-colors">
+          <div className="flex items-center gap-2 text-gray-500">
             <Eye className="w-5 h-5" />
             <span className="text-sm font-medium">{views.toLocaleString()}</span>
-          </button>
+          </div>
 
-          <button className="ml-auto text-gray-400 hover:text-gray-600 transition-colors">
+          <button 
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+            }}
+            className="ml-auto text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+          >
             <Share2 className="w-5 h-5" />
           </button>
 
-          <button className="text-gray-400 hover:text-gray-600 transition-colors">
+          <button 
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+            }}
+            className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
+          >
             <MoreHorizontal className="w-5 h-5" />
           </button>
         </div>
-      </div>
+      </Link>
     </article>
   )
 }

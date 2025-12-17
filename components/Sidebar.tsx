@@ -1,7 +1,12 @@
+"use client"
+
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Home, Building2, Eye, Layers, Lightbulb, TrendingUp, ChevronDown, ChevronRight } from "lucide-react"
 import { useState } from "react"
 
 export default function Sidebar() {
+  const router = useRouter()
   const [locationOpen, setLocationOpen] = useState(true)
   const [industryOpen, setIndustryOpen] = useState(false)
   const [jobFunctionOpen, setJobFunctionOpen] = useState(false)
@@ -15,46 +20,46 @@ export default function Sidebar() {
       <div className="py-3">
         {/* Main Navigation */}
         <nav className="space-y-0.5 px-2 mb-4">
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-900 bg-white border border-gray-200 font-medium text-sm hover:bg-gray-50 transition-colors">
+          <Link href="/" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-900 bg-white border border-gray-200 font-medium text-sm hover:bg-gray-50 transition-colors cursor-pointer">
             <Home className="w-5 h-5" />
             <span>Feed</span>
-          </button>
+          </Link>
           
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors">
+          <Link href="/company" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Building2 className="w-5 h-5" />
             <span>My Company</span>
-          </button>
+          </Link>
 
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors">
+          <Link href="/alters" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Eye className="w-5 h-5" />
             <span>Blind Alters</span>
-          </button>
+          </Link>
 
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors">
+          <Link href="/resources" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Layers className="w-5 h-5" />
             <span>Resources</span>
-          </button>
+          </Link>
 
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors">
+          <Link href="/best" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Lightbulb className="w-5 h-5" />
             <span className="flex-1 text-left">Best of Campus Blind</span>
             <span className="px-1.5 py-0.5 bg-primary text-white text-xs font-semibold rounded">NEW</span>
-          </button>
+          </Link>
 
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors">
+          <Link href="/trending" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <TrendingUp className="w-5 h-5" />
             <span>Trending</span>
-          </button>
+          </Link>
         </nav>
 
         {/* All Channels */}
         <div className="px-2 mb-4">
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors">
+          <Link href="/channels" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
             </svg>
             <span>All Channels</span>
-          </button>
+          </Link>
         </div>
 
         {/* Location Section */}
