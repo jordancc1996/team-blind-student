@@ -1,4 +1,4 @@
-# Team Uni
+# Campus Blind
 
 An anonymous university community platform built with Next.js 14, TypeScript, and Tailwind CSS.
 

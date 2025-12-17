@@ -1,8 +1,8 @@
-# Team Blind Clone - Project Summary
+# Campus Blind - Project Summary
 
 ## 🎯 Project Overview
 
-A fully functional Team Blind clone built with Next.js 14, TypeScript, and Tailwind CSS. This project replicates the core UI/UX of the Team Blind platform, featuring an anonymous professional community interface.
+A fully functional Campus Blind platform built with Next.js 14, TypeScript, and Tailwind CSS. This project features an anonymous university community interface for students and alumni.
 
 ## ✨ Key Features
 

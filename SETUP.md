@@ -76,7 +76,7 @@ team-blind-clone/
 ✅ Left sidebar with navigation links
 ✅ Main content feed with post cards
 ✅ Right sidebar with most read posts
-✅ Anonymous university community design
+✅ Campus Blind - Anonymous university community design
 
 ## Color Scheme
 

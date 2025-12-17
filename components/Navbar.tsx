@@ -9,9 +9,9 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 bg-primary rounded flex items-center justify-center">
-              <span className="text-white font-bold text-base">U</span>
+              <span className="text-white font-bold text-base">C</span>
             </div>
-            <span className="text-gray-900 font-bold text-lg">Team Uni</span>
+            <span className="text-gray-900 font-bold text-lg">Campus Blind</span>
           </div>
 
           {/* Main Navigation */}

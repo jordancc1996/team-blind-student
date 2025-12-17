@@ -5,8 +5,8 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Team Uni - Anonymous University Community",
-  description: "Team Uni is an anonymous professional community for verified university students and alumni to discuss careers, salaries, and opportunities.",
+  title: "Campus Blind - Anonymous University Community",
+  description: "Campus Blind is an anonymous professional community for verified university students and alumni to discuss careers, salaries, and opportunities.",
 }
 
 export default function RootLayout({
