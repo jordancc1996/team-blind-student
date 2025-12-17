@@ -13,11 +13,37 @@ export default function Sidebar() {
   const [studentLifeOpen, setStudentLifeOpen] = useState(false)
   const [financesOpen, setFinancesOpen] = useState(false)
 
-  const universities = ["Stanford", "MIT", "Harvard", "UC Berkeley", "NYU", "University of Texas"]
-  const degreePrograms = ["Computer Science", "Engineering", "Business", "Liberal Arts", "Medicine", "Law"]
-  const studentStatuses = ["Undergraduate", "Graduate", "PhD", "Post-Doc", "Recent Alumni"]
-  const studentLife = ["Campus Life", "Housing", "Dining", "Clubs & Activities"]
-  const finances = ["Scholarships", "Student Loans", "Budgeting", "Part-time Jobs"]
+  const universities = [
+    { name: "Stanford", slug: "stanford" },
+    { name: "MIT", slug: "mit" },
+    { name: "Harvard", slug: "harvard" },
+    { name: "UC Berkeley", slug: "uc-berkeley" },
+    { name: "NYU", slug: "nyu" },
+    { name: "USC", slug: "usc" },
+    { name: "Columbia", slug: "columbia" },
+    { name: "University of Washington", slug: "university-of-washington" },
+    { name: "Carnegie Mellon", slug: "carnegie-mellon" },
+    { name: "UCLA", slug: "ucla" },
+    { name: "Boston University", slug: "boston-university" },
+    { name: "Purdue", slug: "purdue" },
+    { name: "UT Austin", slug: "ut-austin" },
+    { name: "UIUC", slug: "uiuc" },
+    { name: "Northeastern", slug: "northeastern" },
+  ]
+  
+  const degreePrograms = [
+    { name: "Computer Science", slug: "computer-science" },
+    { name: "Engineering", slug: "engineering" },
+    { name: "Business", slug: "business" },
+    { name: "Data Science", slug: "data-science" },
+  ]
+  
+  const studentStatuses = [
+    { name: "Undergraduate", slug: "undergraduate" },
+    { name: "Graduate", slug: "graduate" },
+    { name: "PhD", slug: "phd" },
+    { name: "International Students", slug: "international" },
+  ]
 
   return (
     <aside className="fixed left-0 top-14 bottom-0 w-64 bg-gray-50 border-r border-gray-200 overflow-y-auto">
@@ -29,12 +55,12 @@ export default function Sidebar() {
             <span>Feed</span>
           </Link>
           
-          <Link href="/university" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
+          <Link href="/my-university" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Building2 className="w-5 h-5" />
             <span>My University</span>
           </Link>
 
-          <Link href="/alters" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
+          <Link href="/blind-alters" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Eye className="w-5 h-5" />
             <span>Campus Alters</span>
           </Link>
@@ -44,7 +70,7 @@ export default function Sidebar() {
             <span>Resources</span>
           </Link>
 
-          <Link href="/best" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
+          <Link href="/best-of-campus-blind" className="w-full flex items-center gap-3 px-3 py-2.5 rounded text-gray-700 hover:bg-white hover:border hover:border-gray-200 font-normal text-sm transition-colors cursor-pointer">
             <Lightbulb className="w-5 h-5" />
             <span className="flex-1 text-left">Best of Campus Blind</span>
             <span className="px-1.5 py-0.5 bg-primary text-white text-xs font-semibold rounded">NEW</span>
@@ -77,13 +103,14 @@ export default function Sidebar() {
           </button>
           {universitiesOpen && (
             <nav className="space-y-0.5 px-2 mt-1">
-              {universities.map((university) => (
-                <button
-                  key={university}
-                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+              {universities.slice(0, 6).map((university) => (
+                <Link
+                  key={university.slug}
+                  href={`/university/${university.slug}`}
+                  className="block w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
                 >
-                  {university}
-                </button>
+                  {university.name}
+                </Link>
               ))}
               <button className="w-full text-left px-6 py-2 text-sm text-gray-500 hover:bg-white rounded transition-colors">
                 SHOW MORE
@@ -104,12 +131,13 @@ export default function Sidebar() {
           {degreeProgramsOpen && (
             <nav className="space-y-0.5 px-2 mt-1">
               {degreePrograms.map((program) => (
-                <button
-                  key={program}
-                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+                <Link
+                  key={program.slug}
+                  href={`/programs/${program.slug}`}
+                  className="block w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
                 >
-                  {program}
-                </button>
+                  {program.name}
+                </Link>
               ))}
             </nav>
           )}
@@ -127,12 +155,13 @@ export default function Sidebar() {
           {studentStatusOpen && (
             <nav className="space-y-0.5 px-2 mt-1">
               {studentStatuses.map((status) => (
-                <button
-                  key={status}
-                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
+                <Link
+                  key={status.slug}
+                  href={`/status/${status.slug}`}
+                  className="block w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
                 >
-                  {status}
-                </button>
+                  {status.name}
+                </Link>
               ))}
             </nav>
           )}
@@ -140,48 +169,22 @@ export default function Sidebar() {
 
         {/* Student Life Section */}
         <div className="mb-4">
-          <button 
-            onClick={() => setStudentLifeOpen(!studentLifeOpen)}
+          <Link
+            href="/student-life"
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
             <span>STUDENT LIFE</span>
-            {studentLifeOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-          </button>
-          {studentLifeOpen && (
-            <nav className="space-y-0.5 px-2 mt-1">
-              {studentLife.map((item) => (
-                <button
-                  key={item}
-                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
-                >
-                  {item}
-                </button>
-              ))}
-            </nav>
-          )}
+          </Link>
         </div>
 
         {/* Finances Section */}
         <div className="mb-4">
-          <button 
-            onClick={() => setFinancesOpen(!financesOpen)}
+          <Link
+            href="/finances"
             className="w-full flex items-center justify-between px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider hover:bg-white"
           >
             <span>FINANCES</span>
-            {financesOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-          </button>
-          {financesOpen && (
-            <nav className="space-y-0.5 px-2 mt-1">
-              {finances.map((item) => (
-                <button
-                  key={item}
-                  className="w-full text-left px-6 py-2 text-sm text-gray-700 hover:bg-white rounded transition-colors"
-                >
-                  {item}
-                </button>
-              ))}
-            </nav>
-          )}
+          </Link>
         </div>
 
         {/* Show More Channels */}
