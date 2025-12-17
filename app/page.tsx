@@ -76,16 +76,12 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      {/* Three Column Grid Layout */}
       <div className="fixed top-14 left-0 right-0 bottom-0 overflow-hidden">
         <div className="h-full flex max-w-[1920px] mx-auto">
-          {/* Left Sidebar */}
           <Sidebar />
           
-          {/* Main Feed */}
           <main className="flex-1 ml-64 mr-80 overflow-y-auto bg-white">
             <div className="max-w-3xl mx-auto px-6 py-4">
-              {/* Sort Dropdown and New Post Button */}
               <div className="mb-4 flex items-center justify-between">
                 <div className="relative">
                   <button 
@@ -125,10 +121,9 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* Feed Tabs */}
               <div className="mb-4 flex gap-1 border-b border-gray-200">
                 <button 
-                  onClick(() => setActiveTab("popular")}
+                  onClick={() => setActiveTab("popular")}
                   className={`pb-3 px-4 font-semibold text-sm transition-colors cursor-pointer ${
                     activeTab === "popular" 
                       ? "text-black border-b-2 border-black" 
@@ -159,7 +154,6 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* Posts Feed */}
               <div>
                 {samplePosts.map((post, index) => (
                   <PostCard key={index} {...post} />
@@ -168,7 +162,6 @@ export default function Home() {
             </div>
           </main>
           
-          {/* Right Sidebar */}
           <TrendingSidebar />
         </div>
       </div>
