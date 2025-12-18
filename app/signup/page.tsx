@@ -16,6 +16,57 @@ export default function SignupPage() {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState(false)
 
+  // Generate random 6-character alphanumeric username (Team Blind style)
+  const generateRandomUsername = (): string => {
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    let username = ''
+    for (let i = 0; i < 6; i++) {
+      username += chars.charAt(Math.floor(Math.random() * chars.length))
+    }
+    return username
+  }
+
+  // Check if username already exists in database
+  const isUsernameAvailable = async (username: string): Promise<boolean> => {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('username')
+        .eq('username', username)
+        .maybeSingle()
+
+      if (error) {
+        console.error('Error checking username:', error)
+        return true // Assume available if error
+      }
+
+      return !data // Available if no data found
+    } catch (err) {
+      console.error('Error checking username availability:', err)
+      return true // Assume available if error
+    }
+  }
+
+  // Generate unique username
+  const generateUniqueUsername = async (): Promise<string> => {
+    let username = generateRandomUsername()
+    let attempts = 0
+    const maxAttempts = 10
+
+    // Try up to 10 times to generate a unique username
+    while (attempts < maxAttempts) {
+      const isAvailable = await isUsernameAvailable(username)
+      if (isAvailable) {
+        return username
+      }
+      username = generateRandomUsername()
+      attempts++
+    }
+
+    // If still no unique username after 10 attempts, append timestamp
+    return generateRandomUsername() + Date.now().toString().slice(-2)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
@@ -84,9 +135,9 @@ export default function SignupPage() {
 
       const universityId = universities?.id || null
 
-      // Generate anonymous username
-      const randomNum = Math.floor(Math.random() * 10000)
-      const username = `Student_${randomNum}`
+      // Generate unique random username (Team Blind style: e.g., "glQe27", "xK9pL2")
+      const username = await generateUniqueUsername()
+      console.log("Generated username:", username)
 
       // Create profile
       const { error: profileError } = await supabase
